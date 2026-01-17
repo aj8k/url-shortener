@@ -6,7 +6,7 @@ import worker from '../src/index';
 // `Request` to pass to `worker.fetch()`.
 const IncomingRequest = Request<unknown, IncomingRequestCfProperties>;
 
-describe('Onil Redirect', () => {
+describe('URL Shortener', () => {
 	it('redirects "gh" to GitHub', async () => {
 		const request = new IncomingRequest('http://example.com/gh');
 		// Create an empty context to pass to `worker.fetch()`.
