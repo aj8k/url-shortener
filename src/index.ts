@@ -12,18 +12,24 @@
  */
 
 import { redirects, DEFAULT_REDIRECT } from './redirects';
+import { handle404 } from './404';
 
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
 		const url = new URL(request.url);
-		const pathname = url.pathname.slice(1).replace(/\/$/, '');
 
-		const target = redirects[pathname];
-
-		if (target) {
-			return Response.redirect(target, 302);
+		if (url.pathname === '/') {
+			return Response.redirect(DEFAULT_REDIRECT, 302);
 		}
 
-		return Response.redirect(DEFAULT_REDIRECT, 302);
+		const match = url.pathname.match(/^\/([a-zA-Z0-9_-]+)\/?$/);
+		if (match) {
+			const target = redirects[match[1]];
+			if (target) {
+				return Response.redirect(target, 302);
+			}
+		}
+
+		return handle404();
 	},
 } satisfies ExportedHandler<Env>;

@@ -31,7 +31,7 @@ describe('URL Shortener', () => {
 		expect(response.headers.get('Location')).toBe('https://github.com/aj8k');
 	});
 
-	it('redirects random path to homepage', async () => {
+	it('redirects non-existent path to 404', async () => {
 		const request = new IncomingRequest('http://example.com/ghrandompaththatdoesnotexist');
 		// Create an empty context to pass to `worker.fetch()`.
 		const ctx = createExecutionContext();
@@ -39,8 +39,9 @@ describe('URL Shortener', () => {
 		// Wait for all `Promise`s passed to `ctx.waitUntil()` to settle before running test assertions
 		await waitOnExecutionContext(ctx);
 
-		expect(response.status).toBe(302);
-		expect(response.headers.get('Location')).toBe('https://antonjoy.com/');
+		expect(response.status).toBe(404);
+		expect(response.headers.get('Content-Type')).toBe('text/html;charset=UTF-8');
+		expect(await response.text()).toContain('<h1>404</h1>');
 	});
 
 	it('redirects root path to homepage', async () => {
