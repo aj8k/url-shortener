@@ -1,4 +1,4 @@
-import { env, createExecutionContext, waitOnExecutionContext } from 'cloudflare:test';
+import { env, createExecutionContext, waitOnExecutionContext, SELF } from 'cloudflare:test';
 import { describe, it, expect } from 'vitest';
 import worker from '../src/index';
 
@@ -54,5 +54,16 @@ describe('URL Shortener', () => {
 
 		expect(response.status).toBe(302);
 		expect(response.headers.get('Location')).toBe('https://antonjoy.com/');
+	});
+
+	it('returns robots.txt from assets', async () => {
+		const response = await SELF.fetch('http://example.com/robots.txt');
+
+		expect(response.status).toBe(200);
+		expect(response.headers.get('Content-Type')).toContain('text/plain');
+
+		const text = await response.text();
+		expect(text).toContain('User-agent: *');
+		expect(text).toContain('Disallow: /');
 	});
 });
