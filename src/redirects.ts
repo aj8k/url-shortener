@@ -7,6 +7,7 @@ export const redirects: Readonly<Record<string, string>> = {
 	x: 'https://x.com/aj8k_cc',
 	bs: 'https://bsky.app/profile/aj8k.cc',
 	rd: 'https://www.reddit.com/user/aj8k_cc',
+	yt: 'https://www.youtube.com/@aj8k_cc',
 
 	// Infrastructure Links
 	dh: 'https://hub.docker.com/u/aj8kcc',
