@@ -6,6 +6,8 @@ export const redirects: Readonly<Record<string, string>> = {
 	bs: 'https://bsky.app/profile/antonjoy.com',
 	x: 'https://x.com/antonjoy_dev',
 	yt: 'https://www.youtube.com/@antonjoy_dev',
+	ih: 'https://www.indiehackers.com/antonjoy',
+	hn: 'https://news.ycombinator.com/user?id=antonjoy',
 
 	// Infrastructure Links
 	gh: 'https://github.com/aj8k',
