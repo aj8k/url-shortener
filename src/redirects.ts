@@ -1,17 +1,16 @@
 export const redirects: Readonly<Record<string, string>> = {
 	// Social Links
-	gh: 'https://github.com/aj8k',
-	li: 'https://www.linkedin.com/in/aj8k/',
-	ph: 'https://www.producthunt.com/@aj8k',
-	dt: 'https://dev.to/aj8k',
-	x: 'https://x.com/aj8k_cc',
-	bs: 'https://bsky.app/profile/aj8k.cc',
-	rd: 'https://www.reddit.com/user/aj8k_cc',
-	yt: 'https://www.youtube.com/@aj8k_cc',
+	li: 'https://www.linkedin.com/in/antonjoy/',
+	ph: 'https://www.producthunt.com/@antonjoy',
+	dt: 'https://dev.to/antonjoy',
+	bs: 'https://bsky.app/profile/antonjoy.com',
+	x: 'https://x.com/antonjoy_dev',
+	yt: 'https://www.youtube.com/@antonjoy_dev',
 
 	// Infrastructure Links
-	dh: 'https://hub.docker.com/u/aj8kcc',
+	gh: 'https://github.com/aj8k',
 	npm: 'https://www.npmjs.com/~aj8k',
+	dh: 'https://hub.docker.com/u/antonjoy',
 
 	// Me
 	me: 'https://antonjoy.com/',
